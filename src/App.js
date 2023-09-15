@@ -24,23 +24,23 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: `${process.env.REACT_APP_PROXY}/`,
         element: <Home />,
       },
       {
-        path: "/profile/:id",
+        path: `${process.env.REACT_APP_PROXY}/profile/:id`,
         element: <Profile />,
       },
       {
-        path: "/explore",
+        path: `${process.env.REACT_APP_PROXY}/explore`,
         element: <Explore />,
       },
       {
-        path: "/signin",
+        path: `${process.env.REACT_APP_PROXY}/signin`,
         element: <Signin />,
       },
       {
-        path: "/signout",
+        path: `${process.env.REACT_APP_PROXY}/signout`,
         element: <Signin />,
       },
     ],
