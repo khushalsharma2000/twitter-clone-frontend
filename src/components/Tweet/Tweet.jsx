@@ -39,6 +39,7 @@ const Tweet = ({ tweet, setData }) => {
     }
 
     try {
+      // eslint-disable-next-line no-unused-vars
       const like = await axios.put(`/tweets/${tweet._id}/like`, {
         id: currentUser._id,
       });

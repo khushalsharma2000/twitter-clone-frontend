@@ -43,6 +43,7 @@ const Profile = () => {
 
     if (!currentUser.following.includes(id)) {
       try {
+        // eslint-disable-next-line no-unused-vars
         const follow = await axios.put(`/users/follow/${id}`, {
           id: currentUser._id,
         });
@@ -52,6 +53,7 @@ const Profile = () => {
       }
     } else {
       try {
+        // eslint-disable-next-line no-unused-vars
         const unfollow = await axios.put(`/users/unfollow/${id}`, {
           id: currentUser._id,
         });
@@ -74,7 +76,7 @@ const Profile = () => {
             <div className="flex justify-between items-center">
               <img
                 src={userProfile.profilePicture}
-                alt="Profile Picture"
+                alt="Profile "
                 className="w-12 h-12 rounded-full"
               />
               {currentUser && currentUser._id === id ? (

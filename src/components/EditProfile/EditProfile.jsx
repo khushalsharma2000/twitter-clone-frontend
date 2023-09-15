@@ -70,11 +70,13 @@ const EditProfile = ({ setOpen }) => {
   };
 
   const handleDelete = async () => {
+    // eslint-disable-next-line no-unused-vars
     const deleteProfile = await axios.delete(`/users/${currentUser._id}`);
     dispatch(logout());
     navigate("/signin");
   };
-
+ 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     img && uploadImg(img);
   }, [img]);

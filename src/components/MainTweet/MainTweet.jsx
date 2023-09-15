@@ -12,6 +12,7 @@ const MainTweet = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // eslint-disable-next-line no-unused-vars
       const submitTweet = await axios.post("/tweets", {
         userId: currentUser._id,
         description: tweetText,
