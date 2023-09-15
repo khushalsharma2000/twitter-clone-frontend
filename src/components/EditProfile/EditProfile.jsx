@@ -76,9 +76,11 @@ const EditProfile = ({ setOpen }) => {
     navigate("/signin");
   };
  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   useEffect(() => {
+     
     img && uploadImg(img);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [img]);
 
   return (
