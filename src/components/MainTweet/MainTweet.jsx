@@ -9,15 +9,21 @@ const MainTweet = () => {
 
   const { currentUser } = useSelector((state) => state.user);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     try {
       // eslint-disable-next-line no-unused-vars
-      const submitTweet = await axios.post(`${process.env.REACT_APP_PROXY}/tweets`, {
+      axios.post(`${process.env.REACT_APP_PROXY}/tweets`, {
         userId: currentUser._id,
         description: tweetText,
+      },{
+        withCredentials: true, // Enable sending cookies
+      }).then(res => {
+        console.log(res);
+        window.location.reload(false);
+      }).catch(err => {
+        console.log(err);
       });
-      window.location.reload(false);
     } catch (err) {
       console.log(err);
     }

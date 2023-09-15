@@ -18,7 +18,10 @@ const Signin = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post(`${process.env.REACT_APP_PROXY}/auth/signin`, { username, password });
+      const res = await axios.post(`${process.env.REACT_APP_PROXY}/auth/signin`, { username, password },{
+        withCredentials: true, // Enable sending cookies
+      });
+      console.log(res.data);
       dispatch(loginSuccess(res.data));
       navigate("/");
     } catch (err) {
@@ -35,6 +38,8 @@ const Signin = () => {
         username,
         email,
         password,
+      },{
+        withCredentials: true, // Enable sending cookies
       });
       dispatch(loginSuccess(res.data));
       navigate("/");

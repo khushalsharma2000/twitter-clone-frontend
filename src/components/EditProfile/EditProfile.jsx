@@ -55,6 +55,8 @@ const EditProfile = ({ setOpen }) => {
           try {
             const updateProfile = await axios.put(`${process.env.REACT_APP_PROXY}/users/${currentUser._id}`, {
               profilePicture: downloadURL,
+            },{
+              withCredentials: true, // Enable sending cookies
             });
 
             console.log(updateProfile);
@@ -71,7 +73,9 @@ const EditProfile = ({ setOpen }) => {
 
   const handleDelete = async () => {
     // eslint-disable-next-line no-unused-vars
-    const deleteProfile = await axios.delete(`${process.env.REACT_APP_PROXY}/users/${currentUser._id}`);
+    const deleteProfile = await axios.delete(`${process.env.REACT_APP_PROXY}/users/${currentUser._id}`,{
+      withCredentials: true, // Enable sending cookies
+    });
     dispatch(logout());
     navigate("/signin");
   };

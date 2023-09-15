@@ -46,6 +46,8 @@ const Profile = () => {
         // eslint-disable-next-line no-unused-vars
         const follow = await axios.put(`${process.env.REACT_APP_PROXY}/users/follow/${id}`, {
           id: currentUser._id,
+        },{
+          withCredentials: true, // Enable sending cookies
         });
         dispatch(following(id));
       } catch (err) {
@@ -56,6 +58,8 @@ const Profile = () => {
         // eslint-disable-next-line no-unused-vars
         const unfollow = await axios.put(`${process.env.REACT_APP_PROXY}/users/unfollow/${id}`, {
           id: currentUser._id,
+        },{
+          withCredentials: true, // Enable sending cookies
         });
 
         dispatch(following(id));
