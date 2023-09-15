@@ -7,7 +7,7 @@ const UserPlaceholder = ({ setUserData, userData }) => {
   const { id } = useParams();
   // eslint-disable-next-line no-unused-vars
   const location = useLocation().pathname;
-  
+
 // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +19,7 @@ const UserPlaceholder = ({ setUserData, userData }) => {
       }
     };
     fetchData();
-  }, [id]);
+  }, [id, setUserData]);
 
   return <div>{userData?.username}</div>;
 };
