@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    background-color: black;
+    color: #A9A9A9; /* Set text color to contrast with the black background */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+  }
+  
+  /* Style the content container */
+  .container {
+    /* Add any additional styling you want for the content container */
+    /* For example, you can set a maximum width and center it horizontally */
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto; /* Center horizontally */
+  }
