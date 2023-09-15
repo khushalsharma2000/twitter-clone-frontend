@@ -13,7 +13,7 @@ const MainTweet = () => {
     e.preventDefault();
     try {
       // eslint-disable-next-line no-unused-vars
-      const submitTweet = await axios.post("/tweets", {
+      const submitTweet = await axios.post(`${process.env.REACT_APP_PROXY}"/tweets"`, {
         userId: currentUser._id,
         description: tweetText,
       });

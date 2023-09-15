@@ -22,8 +22,8 @@ const Profile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userTweetsData = await axios.get(`/tweets/user/all/${id}`);
-        const userProfileData = await axios.get(`/users/find/${id}`);
+        const userTweetsData = await axios.get(`${process.env.REACT_APP_PROXY}/tweets/user/all/${id}`);
+        const userProfileData = await axios.get(`${process.env.REACT_APP_PROXY}/users/find/${id}`);
 
         setUserTweets(userTweetsData.data);
         setUserProfile(userProfileData.data);
@@ -44,7 +44,7 @@ const Profile = () => {
     if (!currentUser.following.includes(id)) {
       try {
         // eslint-disable-next-line no-unused-vars
-        const follow = await axios.put(`/users/follow/${id}`, {
+        const follow = await axios.put(`${process.env.REACT_APP_PROXY}/users/follow/${id}`, {
           id: currentUser._id,
         });
         dispatch(following(id));
@@ -54,7 +54,7 @@ const Profile = () => {
     } else {
       try {
         // eslint-disable-next-line no-unused-vars
-        const unfollow = await axios.put(`/users/unfollow/${id}`, {
+        const unfollow = await axios.put(`${process.env.REACT_APP_PROXY}/users/unfollow/${id}`, {
           id: currentUser._id,
         });
 

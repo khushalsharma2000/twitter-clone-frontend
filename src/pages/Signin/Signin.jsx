@@ -18,7 +18,7 @@ const Signin = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("/auth/signin", { username, password });
+      const res = await axios.post(`${process.env.REACT_APP_PROXY}/auth/signin`, { username, password });
       dispatch(loginSuccess(res.data));
       navigate("/");
     } catch (err) {

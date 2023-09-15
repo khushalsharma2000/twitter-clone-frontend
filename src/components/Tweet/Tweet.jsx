@@ -20,7 +20,7 @@ const Tweet = ({ tweet, setData }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const findUser = await axios.get(`/users/find/${tweet.userId}`);
+        const findUser = await axios.get(`${process.env.REACT_APP_PROXY}/users/find/${tweet.userId}`);
         setUserData(findUser.data);
       } catch (err) {
         console.log("error", err);
@@ -40,18 +40,18 @@ const Tweet = ({ tweet, setData }) => {
 
     try {
       // eslint-disable-next-line no-unused-vars
-      const like = await axios.put(`/tweets/${tweet._id}/like`, {
+      const like = await axios.put(`${process.env.REACT_APP_PROXY}/tweets/${tweet._id}/like`, {
         id: currentUser._id,
       });
 
       if (location.includes("profile")) {
-        const newData = await axios.get(`/tweets/user/all/${id}`);
+        const newData = await axios.get(`${process.env.REACT_APP_PROXY}/tweets/user/all/${id}`);
         setData(newData.data);
       } else if (location.includes("explore")) {
-        const newData = await axios.get(`/tweets/explore`);
+        const newData = await axios.get(`${process.env.REACT_APP_PROXY}/tweets/explore`);
         setData(newData.data);
       } else {
-        const newData = await axios.get(`/tweets/timeline/${currentUser._id}`);
+        const newData = await axios.get(`${process.env.REACT_APP_PROXY}/tweets/timeline/${currentUser._id}`);
         setData(newData.data);
       }
     } catch (err) {
